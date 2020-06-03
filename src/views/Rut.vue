@@ -1,9 +1,6 @@
 <template lang="html">
   <section class="src-views-rut">
-    <keep-alive>
-      <!-- <BuefyForm /> -->
-      <RefactoredForm />
-    </keep-alive>
+      <input type="text" v-model="rut"/>
   </section>
 </template>
 
@@ -11,10 +8,9 @@
 
 export default {
   name: 'src-views-rut',
-  components: {
-    // BuefyForm: Form,
-    RefactoredForm: () => import('../components/Rut')
-  }
+  data: () => ({
+    rut: ''
+  })
 
 }
 </script>

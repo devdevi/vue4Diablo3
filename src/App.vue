@@ -1,45 +1,37 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>|
-      <router-link to="/rut">Rut</router-link>  |
-        <router-link to="/contacto">Contacto</router-link>  |
-    </div>
-    <router-view/>
+    <LoadLayout v-if="isLoading">
+      <BaseLoading/>
+    </LoadLayout>
+    <MainLayout v-else />
   </div>
 </template>
+<script lang="js">
+import { mapState } from 'vuex'
+import LoadLayout from '@/layouts/LoadLayout'
+import MainLayout from '@/layouts/MainLayout'
+import BaseLoading from '@/components/BaseLoading'
 
-<style lang="scss">
-// Import Bulma's core
-@import "~bulma/sass/utilities/_all";
+export default {
+  name: 'App',
+  components: {
+    LoadLayout,
+    MainLayout,
+    BaseLoading
+  },
+  computed: {
+    ...mapState('loading', ['isLoading'])
+  }
+}
+</script>
 
-// Set your colors
-$primary: #8c67ef;
-$primary-invert: findColorInvert($primary);
-$twitter: #4099FF;
-$twitter-invert: findColorInvert($twitter);
-
-// Setup $colors to use as bulma classes (e.g. 'is-twitter')
-$colors: (
-    "white": ($white, $black),
-    "black": ($black, $white),
-    "light": ($light, $light-invert),
-    "dark": ($dark, $dark-invert),
-    "primary": ($primary, $primary-invert),
-    "info": ($info, $info-invert),
-    "success": ($success, $success-invert),
-    "warning": ($warning, $warning-invert),
-    "danger": ($danger, $danger-invert),
-    "twitter": ($twitter, $twitter-invert)
-);
-
-// Links
-$link: $primary;
-$link-invert: $primary-invert;
-$link-focus-border: $primary;
-
-// Import Bulma and Buefy styles
-@import "~bulma";
-@import "~buefy/src/scss/buefy";
+<style lang="stylus">
+#app {
+  padding: 60px 0;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ffffff; // Le ponemos un color de letra blanco para que resalte
+  background-color: #15202b; // Le cambiamos el color de fondo por un azul marino oscuro
+}
 </style>

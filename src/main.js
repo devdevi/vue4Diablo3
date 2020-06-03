@@ -2,17 +2,30 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import Buefy from 'buefy'
+// Traer la librería
+import BootstrapVue from 'bootstrap-vue'
 
-import 'buefy/dist/buefy.css'
-import './vee-validate'
+// Traer el css
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-Vue.use(Buefy)
+// Darlo de alta
+Vue.use(BootstrapVue)
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
+  methods: {
+    // Nuestra función
+    init () {
+      store.dispatch('oauth/getToken', null, { root: true })
+    }
+  },
+  // Hook created
+  created () {
+    this.init()
+  },
   render: h => h(App)
 }).$mount('#app')
