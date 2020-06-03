@@ -48,3 +48,7 @@ Por ejemplo Bootstrap-Vue, la librería de componentes que usaremos a lo largo d
 /store: El estado de nuestra aplicación. Lo gestionaremos a través de Vuex.
 /utils: Carpeta con funciones generales o que no tienen una temática definida. No es conveniente abusar de esto. Si tienes mucho contenido aquí quiere decir que deberías agrupar funcionalidades en otro directorio.
 /views: Aquí estarán todas las vistas de nuestra aplicación. Hay que recordar que, en Vue, todo son componentes, y, en este caso, dichos componentes hacen de vistas de nuestra aplicación.
+
+```
+npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/vue-fontawesome @fortawesome/free-brands-svg-icons
+```
