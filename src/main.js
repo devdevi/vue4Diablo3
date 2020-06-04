@@ -45,6 +45,9 @@ new Vue({
     },
     addRoute (route) {
       this.$router.addRoutes(this.createRoute(route))
+      console.log(route)
+
+      store.commit('steps/SET_STEP', route[0].name)
     },
     createRoute (route) {
       return route.map(r => {

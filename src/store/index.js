@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import oauth from './modules/oauth'
 import loading from './modules/loading'
 import error from './modules/error'
+import steps from './modules/steps'
 
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   modules: {
     loading,
     oauth,
-    error
+    error,
+    steps
   }
 })
