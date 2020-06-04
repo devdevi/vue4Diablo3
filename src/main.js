@@ -11,6 +11,17 @@ import './plugins/fontAwesome'
 import './assets/css/main.styl'
 
 import axios from 'axios'
+import Paso1 from '@/views/Paso1/Index.vue'
+import Paso2 from '@/views/Paso2/Index.vue'
+import Paso3 from '@/views/Paso3/Index.vue'
+import About from '@/views/About/Index.vue'
+
+const cmp = {
+  Paso1,
+  Paso2,
+  Paso3,
+  About
+}
 
 Vue.config.productionTip = false
 const ROUTES_URL = 'https://cns.modyo.cloud/api/content/spaces/cotizador/types/routes/entries/125f123a-780a-4c1a-8dea-eae43e451345'
@@ -45,8 +56,6 @@ new Vue({
     },
     addRoute (route) {
       this.$router.addRoutes(this.createRoute(route))
-      console.log(route)
-
       store.commit('steps/SET_STEP', route[0].name)
     },
     createRoute (route) {
@@ -54,7 +63,7 @@ new Vue({
         return {
           ...r,
           // Lazy load
-          component: () => import(/* webpackChunkName: "[request]" */`@/views/${r.name}/Index.vue`)
+          component: cmp[r.name]
         }
       })
     }
