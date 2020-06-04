@@ -1,6 +1,6 @@
 <template>
   <div class="home-title text-center">
-    <h1 class="my-5 font-diablo">Diablo 3 Profile Finder</h1>
+    <h1 class="my-5 font-diablo">POC VUE4 API Diablo3</h1>
     <p class="lead text-muted">Enter your
       <em>
         <a href="https://eu.battle.net/support/es/article/75767" target="_blank" title="Format: YourProfile#1234">battle-tag</a>

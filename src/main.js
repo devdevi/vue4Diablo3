@@ -31,14 +31,12 @@ new Vue({
       axios.get(`${ROUTES_URL}`)
         .then(data => {
           data.data.fields.routes.map(r => {
-            console.log(r.uuid)
             this.getRoute(r.uuid)
           })
         })
         .catch(e => console.error(e))
     },
     getRoute (id) {
-      console.log(`${ROUTE_URL}${id}`)
       axios.get(`${ROUTE_URL}${id}`)
         .then(res => {
           this.addRoute([{ ...res.data.fields }])
@@ -46,19 +44,20 @@ new Vue({
         .catch(e => console.error(e))
     },
     addRoute (route) {
-      const newRoute = route.map(r => {
+      this.$router.addRoutes(this.createRoute(route))
+    },
+    createRoute (route) {
+      return route.map(r => {
         return {
           ...r,
           // Lazy load
           component: () => import(/* webpackChunkName: "[request]" */`@/views/${r.name}/Index.vue`)
         }
       })
-      this.$router.addRoutes(newRoute)
     }
   },
   // Hook created
   created () {
-    console.log(router)
     this.init()
   },
   render: h => h(App)
