@@ -1,13 +1,19 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="https://cloud.modyocdn.com/uploads/9fbc6e38-2308-46fe-97e5-9c714c0ff8a8/original/logo.png">
-    <h1>Home Page</h1>
+    <HomeTitle />
+    <HomeForm />
   </div>
 </template>
 
 <script>
+import HomeTitle from './HomeTitle'
+import HomeForm from './HomeForm'
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    HomeTitle,
+    HomeForm
+  }
 }
 </script>

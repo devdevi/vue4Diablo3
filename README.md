@@ -52,3 +52,10 @@ Por ejemplo Bootstrap-Vue, la librería de componentes que usaremos a lo largo d
 ```
 npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/vue-fontawesome @fortawesome/free-brands-svg-icons
 ```
+
+{
+  path: '/about',
+  name: 'About',
+  component: () =>
+    import(/* webpackChunkName: "about" */'../views/About/Index.vue')
+},

@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-        <HeaderBar/>
-
+    <HeaderBar/>
     <router-view/>
-
     <FooterBar/>
   </div>
 </template>
