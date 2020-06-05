@@ -59,4 +59,4 @@ npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
   component: () =>
     import(/* webpackChunkName: "about" */'../views/About/Index.vue')
 },
-
+(test)[http://localhost:8080/#/region/kr/profile/오빠-3239)]

@@ -15,21 +15,26 @@
         <img v-if="hero.seasonal" src="https://cloud.modyocdn.com/uploads/fd92f780-124d-42f8-ab1c-5a0bc9815b6e/original/leaf.png" width="12px" class="">
       </h5>
       <div class="d-flex justify-content-between border-top border-secondary pt-2 align-items-center mt-2">
-        <small class="elite-kills">
+        <small class="elite-kills text-white">
           <!-- Jefes (Élites) asesinados -->
-          <span class="text-monospace">{{ hero.kills.elites }}</span>
+          <span class="text-monospace">{{ hero.kills.elites | formatNumber }}</span>
           Elite kills
         </small>
         <!-- Nivel. De color rojo si el héroe está muerto -->
-        <small class="level-circle" :class="{'text-danger': hero.dead}"> {{ hero.level }} </small>
+        <small class="level-circle" :class="[hero.dead? 'text-danger': 'text-white']"> {{ hero.level }} </small>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { formatNumber } from '@/filters/numeral'
+
 export default {
   name: 'TopHero',
+  filters: {
+    formatNumber
+  },
   props: {
     hero: {
       type: Object,
