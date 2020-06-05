@@ -62,7 +62,9 @@ new Vue({
       return route.map(r => {
         return {
           ...r,
-          // Lazy load
+          // Lazy load 🦄
+          /* webpackChunkName: "[request]" 🙂 */
+          /* () => import(`@/views/${r.name}/Index.vue`) */
           component: cmp[r.name]
         }
       })

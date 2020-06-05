@@ -3,7 +3,7 @@
     <small>
       Made by
       for
-      <a href="https://platzi.com/" target="_blank">Platzi</a>
+      <a href="#" target="_blank"></a>
     </small>
   </p>
 </template>

@@ -1,20 +1,43 @@
 <template>
   <div class="grid-container">
     <div class="grid-item item-left">
-      <h1>Izquierda</h1>
+     <TopHeroes v-if="hasHeroes" :heroes="topHeroes"/>
+     <HeroList :heroes="heroesList"/>
     </div>
     <div class="grid-item item-right">
-      <h1>Derecha</h1>
+
     </div>
   </div>
 </template>
 <script>
+import TopHeroes from './TopHeros/Index'
+import HeroList from './TopHeros/HeroList/Index'
 export default {
   name: 'MainBlock',
+  components: {
+    TopHeroes,
+    HeroList
+  },
   props: {
     profileData: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    // Comprobamos que hay héroes
+    hasHeroes () {
+      return this.profileData.heroes.length > 0
+    },
+    // Devolvemos los 3 primeros
+    topHeroes () {
+      return this.profileData.heroes.slice(0, 3)
+    },
+    hasHeroesList () {
+      return this.profileData.heroes.length > 3
+    },
+    heroesList () {
+      return this.profileData.heroes.slice(3, this.profileData.heroes.length)
     }
   }
 }
