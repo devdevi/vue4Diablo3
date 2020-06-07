@@ -59,4 +59,6 @@ npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
   component: () =>
     import(/* webpackChunkName: "about" */'../views/About/Index.vue')
 },
+😎 Truqui: si estás en MacOS, puedes pulsar la combinación de teclas Control + Cmd + Tecla Espacio para sacar un selector de emojis. 👇
+/* ¿Eres usuario de Windows? Con la combinación Win + . puedes hacer lo mismo 😉 */
 (test)[http://localhost:8080/#/region/kr/profile/오빠-3239)]
