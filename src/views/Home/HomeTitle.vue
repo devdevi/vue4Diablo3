@@ -1,6 +1,6 @@
 <template>
   <div class="home-title text-center">
-    <h1 class="my-5 font-diablo">POC VUE4 API Diablo3</h1>
+    <h1 v-diablo:bone class="my-5">{{title}}</h1>
     <p class="lead text-muted">Enter your
       <em>
         <a href="https://eu.battle.net/support/es/article/75767" target="_blank" title="Format: YourProfile#1234">battle-tag</a>
@@ -12,6 +12,9 @@
 
 <script>
 export default {
-  name: 'HomeTitle'
+  name: 'HomeTitle',
+  data: () => ({
+    title: process.env.VUE_APP_TITLE
+  })
 }
 </script>

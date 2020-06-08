@@ -9,6 +9,8 @@ import './plugins/bootstrapVue'
 // Vue Font-Awesome
 import './plugins/fontAwesome'
 import './assets/css/main.styl'
+// Custom directives
+import './directives'
 
 import axios from 'axios'
 import Paso1 from '@/views/Paso1/Index.vue'

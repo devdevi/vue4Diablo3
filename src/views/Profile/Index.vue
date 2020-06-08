@@ -1,8 +1,8 @@
 <template>
   <div>
     <BaseLoading v-if="isLoading" />
-    <MainBlock v-else :profile-data="profileData"/>
-    <ArtisansBlock :artisans-data="artisansData" />
+    <MainBlock v-if="profileData" :profile-data="profileData"/>
+    <ArtisansBlock  v-if="artisansData" :artisans-data="artisansData" />
   </div>
 </template>
 
@@ -38,14 +38,17 @@ export default {
   },
   computed: {
     artisansData () {
-      return {
-        blacksmith: this.profileData.blacksmith,
-        blacksmithHardcore: this.profileData.blacksmithHardcore,
-        jeweler: this.profileData.jeweler,
-        jewelerHardcore: this.profileData.jewelerHardcore,
-        mystic: this.profileData.mystic,
-        mysticHardcore: this.profileData.mysticHardcore
+      if (this.profileData) {
+        return {
+          blacksmith: this.profileData.blacksmith,
+          blacksmithHardcore: this.profileData.blacksmithHardcore,
+          jeweler: this.profileData.jeweler,
+          jewelerHardcore: this.profileData.jewelerHardcore,
+          mystic: this.profileData.mystic,
+          mysticHardcore: this.profileData.mysticHardcore
+        }
       }
+      return {}
     }
   },
   methods: {
